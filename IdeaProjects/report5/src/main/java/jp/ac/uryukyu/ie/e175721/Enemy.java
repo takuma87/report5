@@ -13,6 +13,21 @@ public class Enemy extends LivingThing {
         super(name,maximumHP,attack);
     }
 
+    public void attack(LivingThing opponent){
+        if (isDead() == false) {
+            int damage = (int) (Math.random() * getAttack());
+            int val = (int) (Math.random() * 10);
+            if (damage == 0) {
+                System.out.printf("%sの攻撃！,,,だが、%sは攻撃を回避した！\n", getName(), opponent.getName());
+            } else if (val == 0 || val == 1 || val == 2 ) {
+                System.out.printf("%sの攻撃！痛恨の一撃！！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
+                opponent.wounded(2 * damage);
+            } else {
+                System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
+            }
+        }
+    }
+
 
 
 

@@ -1,7 +1,6 @@
 package jp.ac.uryukyu.ie.e175721;
 
 public class Hero extends LivingThing {
-    int val;
     /**
      * コンストラクタ。名前、最大HP、攻撃力を指定する。
      * @param name ヒーロー名
@@ -12,7 +11,21 @@ public class Hero extends LivingThing {
         super(name,maximumHP,attack);
     }
 
-
+    @Override
+    public void attack(LivingThing opponent){
+        if (isDead() == false) {
+            int damage = (int) (Math.random() * getAttack());
+            int val = (int) (Math.random() * 10);
+            if (damage == 0) {
+                System.out.printf("%sの攻撃！,,,だが、%sは攻撃を回避した！\n", getName(), opponent.getName());
+            } else if (val == 0 || val == 1 || val == 2 || val == 3) {
+                System.out.printf("%sの攻撃！会心の一撃！！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
+                opponent.wounded(2 * damage);
+            } else {
+                System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
+            }
+        }
+    }
 
     /**
      * 自身へ攻撃されたときのダメージ処理をするメソッド。
