@@ -1,10 +1,15 @@
 package jp.ac.uryukyu.ie.e175721;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class EnemyTest {
+    @AfterEach
+    void tearDown() {
+    }
+
     @Test
     void attack() {
         int heroHP = 10;
