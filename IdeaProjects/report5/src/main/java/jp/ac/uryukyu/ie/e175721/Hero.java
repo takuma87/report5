@@ -24,6 +24,7 @@ public class Hero extends LivingThing {
                 opponent.wounded(damage);
             } else {
                 System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
+                opponent.wounded(damage);
             }
         }
     }
