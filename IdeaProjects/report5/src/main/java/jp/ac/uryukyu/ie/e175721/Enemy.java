@@ -20,8 +20,9 @@ public class Enemy extends LivingThing {
             if (damage == 0) {
                 System.out.printf("%sの攻撃！,,,だが、%sは攻撃を回避した！\n", getName(), opponent.getName());
             } else if (val == 0 || val == 1 || val == 2 ) {
+                damage = damage*2;
                 System.out.printf("%sの攻撃！痛恨の一撃！！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
-                opponent.wounded(2 * damage);
+                opponent.wounded(damage);
             } else {
                 System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
             }
